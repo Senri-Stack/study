@@ -1,0 +1,3 @@
+1.参考
+- Python 3.8.7rc1 ドキュメント logging チュートリアル
+https://docs.python.org/ja/3.8/howto/logging.html#logging-basic-tutorial
