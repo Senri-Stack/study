@@ -1,0 +1,16 @@
+対話的API http://127.0.0.1:8000/docs
+
+- 入力を任意にする方法
+    - デフォルト値を設定する
+    - = Query(None)　または　= None　を設定する
+- 必須にする
+    - 第一引数に...を使用する  詳細：https://docs.python.org/3/library/constants.html#Ellipsis
+- 複数の値を設定する:リストを渡す
+    - Optional[List[str]]
+
+- エイリアス
+- 無効なPythonの変数名をもつ、パラメータの値を見つけたい
+- alias="item-query"
+
+- 非推奨（消せないが、使えなくしたい）にしたい
+deprecated=True,
