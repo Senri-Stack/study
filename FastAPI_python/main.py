@@ -1,20 +1,26 @@
-from typing import Optional
+from typing import List, Optional, Set
 
-from fastapi import FastAPI, Query
+from fastapi import FastAPI
+from pydantic import BaseModel, HttpUrl
 
 app = FastAPI()
 
 
-@app.get("/items/")
-async def read_items(
-    q: Optional[str] = Query(
-        None,
-        title="Query string",
-        description="Query string for the items to search in the database that have a good match",
-        min_length=3,
-    )
-):
-    results = {"items": [{"item_id": "Foo"}, {"item_id": "Bar"}]}
-    if q:
-        results.update({"q": q})
+class Image(BaseModel):
+    url: HttpUrl
+    name: str
+
+
+class Item(BaseModel):
+    name: str
+    description: Optional[str] = None
+    price: float
+    tax: Optional[float] = None
+    tags: Set[str] = set()
+    images: Optional[List[Image]] = None
+
+
+@app.put("/items/{item_id}")
+async def update_item(item_id: int, item: Item):
+    results = {"item_id": item_id, "item": item}
     return results

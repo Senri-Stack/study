@@ -1,8 +1,10 @@
 - チュートリアル（公式）
 -- https://fastapi.tiangolo.com/ja/tutorial/
 
+http://127.0.0.1:8000/
+http://127.0.0.1:8000/docs
+uvicorn main:app --reload
 
-対話的API http://127.0.0.1:8000/docs
 
 - 入力を任意にする方法
     - デフォルト値を設定する
@@ -18,3 +20,18 @@
 
 - 非推奨（消せないが、使えなくしたい）にしたい
 deprecated=True,
+
+- 並び替え
+- query パラメータを Query やデフォルト値なしで、別の順番に並べたい場合、関数の最初のパラメータとして * を渡します。
+
+- 数の制約
+- ge を使って、最低値？を設定できる。 ge = 1のとき、1以上の整数を入力しないといけない。
+- 数の制約：範囲を指定する　floatも指定可能
+-- gt ~より大きく
+-- le ~ 以下　
+-- gt = 0 , le = 100,　で 0より大きく、100以下 
+
+gt: greater than
+ge: greater than or equal
+lt: less than
+le: less than or equal
