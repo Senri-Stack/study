@@ -1,26 +1,12 @@
-from typing import List, Optional, Set
-
-from fastapi import FastAPI
-from pydantic import BaseModel, HttpUrl
+from fastapi import FastAPI, HTTPException
 
 app = FastAPI()
 
-
-class Image(BaseModel):
-    url: HttpUrl
-    name: str
+items = {"foo": "The Foo Wrestlers"}
 
 
-class Item(BaseModel):
-    name: str
-    description: Optional[str] = None
-    price: float
-    tax: Optional[float] = None
-    tags: Set[str] = set()
-    images: Optional[List[Image]] = None
-
-
-@app.put("/items/{item_id}")
-async def update_item(item_id: int, item: Item):
-    results = {"item_id": item_id, "item": item}
-    return results
+@app.get("/items/{item_id}")
+async def read_item(item_id: str):
+    if item_id not in items:
+        raise HTTPException(status_code=404, detail="Item not found")
+    return {"item": items[item_id]}
