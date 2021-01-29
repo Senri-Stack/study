@@ -40,3 +40,16 @@ deprecated=True,
 - エラーを返したい
 - HTTPException をインポート
 -- from fastapi import FastAPI, HTTPException
+
+- getとかpostにtag(名前・カテゴリ)をつけたい
+- @app.get("/users/", tags=["users"])
+
+- 概要をつける: summary / 説明をつける: description
+- @app.post(
+    "/items/",
+    response_model=Item,
+    summary="Create an item",
+    description="Create an item with all the information, name, description, price, tax and a set of unique tags",
+)
+
+次回：セキュリティから
