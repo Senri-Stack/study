@@ -1,0 +1,18 @@
+# セキュリティについて
+
+# 環境
+- fastapi
+- Python 3.8
+
+# 参考サイト
+- main_1.py
+-- https://fastapi.tiangolo.com/ja/tutorial/security/first-steps/
+- main_2.py
+-- https://fastapi.tiangolo.com/tutorial/security/get-current-user/
+- main_3.py
+-- https://fastapi.tiangolo.com/tutorial/security/simple-oauth2/
+-- https://fastapi.tiangolo.com/tutorial/extra-models/#about-user_indict
+
+# はじめる前に。
+$ pip install python-multipart
+- OAuth2が ユーザー名 や パスワード を送信するために、「フォームデータ」を使うから。
