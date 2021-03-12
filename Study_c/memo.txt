@@ -1,0 +1,2 @@
+# 文字化け回避
+gcc -fexec-charset=CP932 -o hoge 
